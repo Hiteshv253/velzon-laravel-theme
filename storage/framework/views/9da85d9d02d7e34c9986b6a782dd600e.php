@@ -10,6 +10,7 @@
                     <?php if(isset($title)): ?>
                         <li class="breadcrumb-item active"><?php echo e($title); ?></li>
                     <?php endif; ?>
+                    
                 </ol>
             </div>
 

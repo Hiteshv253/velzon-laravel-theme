@@ -10,6 +10,7 @@
                     @if (isset($title))
                         <li class="breadcrumb-item active">{{ $title }}</li>
                     @endif
+                    
                 </ol>
             </div>
 

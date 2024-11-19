@@ -104,7 +104,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 //buttons exmples
 document.addEventListener('DOMContentLoaded', function () {
-  let table = new DataTable('#ajax-datatables', {
-        "ajax": 'build/json/datatable.json'
+  let table = new DataTable('#example', {
+        "ajax": '{{ route("users.index__") }}'
     });
 }); 
