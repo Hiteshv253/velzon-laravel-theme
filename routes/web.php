@@ -27,6 +27,14 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('index__', [UserController::class, 'index__'])->name('users.index__');
     Route::get('users/create', [UserController::class, 'create'])->name('users.create');
     Route::post('users/store', [UserController::class, 'store'])->name('users.store');
+    Route::get('users/edit/{id}', [UserController::class, 'edit'])->name('users.edit');
+    Route::post('users/update/{id}', [UserController::class, 'update'])->name('users.update');
+    Route::post('users/multi_delete/', [UserController::class, 'multi_delete'])->name('users.multi_delete');
+    Route::post('users/delete/{id}', [UserController::class, 'delete'])->name('users.delete');
+    
+    
+    
+    
     
     //Update User Details
     Route::post('/update-profile/{id}', [App\Http\Controllers\HomeController::class, 'updateProfile'])->name('updateProfile');

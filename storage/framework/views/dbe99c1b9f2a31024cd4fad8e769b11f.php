@@ -11,45 +11,47 @@
         <div class="col-xl-12">
             <div class="card">
                 <div class="card-header">
-                    <h4 class="card-title mb-0">Create User</h4>
+                    <h4 class="card-title mb-0">Update User</h4>
                 </div><!-- end card header -->
                 <div class="card-body">
-                    <form action="<?php echo e(route('users.store')); ?>" class="form-steps" autocomplete="off" method="POST" enctype="multipart/form-data">
-                        <?php echo csrf_field(); ?>
+                    <form action="<?php echo e(route('users.update', $user->id)); ?>" class="form-steps" autocomplete="off" method="POST" enctype="multipart/form-data">
 
+                        <?php echo csrf_field(); ?>
                         <div>
                             <div class="row">
                                 <div class="col-lg-6">
                                     <div class="mb-3">
                                         <label class="form-label" for="name">Full Name</label>
-                                        <input type="text" class="form-control" id="name" name="name" 
-                                           placeholder="Enter user name" required>
+                                        <input id="name" disabled name="name" type="text" class="validate form-control"
+                                        <?php if(isset($user)): ?> value="<?php echo e($user->name); ?>" <?php endif; ?> required>
                                         <div class="invalid-feedback">Please enter a user name</div>
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="mb-3">
                                         <label class="form-label" for="email">Email</label>
-                                        <input type="email" class="form-control" id="email" name="email"
-                                           placeholder="Enter email" required>
+                                        <input id="email" disabled name="email" type="email" class="validate form-control"
+                                        <?php if(isset($user)): ?> value="<?php echo e($user->email); ?>" <?php endif; ?> required>
                                         <div class="invalid-feedback">Please enter an email address</div>
                                     </div>
                                 </div>
+
                             </div>
                             <div class="row">
+
                                 <div class="col-lg-6">
                                     <label class="form-label" for="password">Password</label>
-                                    <input type="password" class="form-control" id="password" name="password"
-                                       placeholder="Enter Password" required>
+                                    <input id="password" type="password" name="password" class="validate form-control" minlength="8" data-error=".errorTxt1" value="">
+
                                     <div class="invalid-feedback">Please enter a password</div>
                                 </div>
                                 <div class="col-lg-6">
                                     <h6 class="fw-semibold">Select Roles</h6>
-                                    <select class="js-example-basic-multiple" name="roles[]" multiple="multiple">
+                                    <select class="js-example-basic-multiple" name="roles[]" id="roles" multiple="multiple">
                                         <?php $__currentLoopData = $roles; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $role): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                            <?php if($role->name !== 'Admin'): ?>
+                                        <?php if($role->name !== 'Admin'): ?>
                                                 <option value="<?php echo e($role->name); ?>"
-                                                <?php if(isset($user)): ?> <?php if($user->hasRole($role->name)): ?> selected <?php endif; ?> <?php endif; ?>>
+                                                <?php echo e((isset($user))?($user->hasRole($role->name))?'selected':'':''); ?>>
                                                     <?php echo e($role->name); ?>
 
                                                 </option>
@@ -59,15 +61,16 @@
                                 </div>
                             </div>
                         </div>
-
                         <div class="d-flex align-items-start gap-3 mt-4">
-                            <button onClick="backbtn()" type="button" class="btn btn-link text-decoration-none btn-label previestab" data-previous="pills-gen-info-tab"><i
+                            <button type="button" class="btn btn-link text-decoration-none btn-label previestab"
+                                data-previous="pills-gen-info-tab"><i
                                 class="ri-arrow-left-line label-icon align-middle fs-16 me-2"></i> Back to
-                                General</button>
+                            General</button>
                             <button type="submit" class="btn btn-success btn-label right ms-auto nexttab nexttab"
                                 data-nexttab="pills-success-tab"><i
                                 class="ri-arrow-right-line label-icon align-middle fs-16 ms-2"></i>Submit</button>
                             </div>
+
 
                     <!-- end tab content -->
                         </form>
@@ -80,6 +83,7 @@
 
     <!-- end col -->
         </div><!-- end row -->
+        
 
 
 <!-- end row -->
@@ -95,4 +99,4 @@
         <script src="<?php echo e(URL::asset('build/js/pages/select2.init.js')); ?>"></script>
     <?php $__env->stopSection(); ?>
 
-<?php echo $__env->make('layouts.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\xampp\htdocs\velzon-laravel-10-main\resources\views/users/new.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('layouts.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\xampp\htdocs\velzon-laravel-10-main\resources\views/users/edit.blade.php ENDPATH**/ ?>

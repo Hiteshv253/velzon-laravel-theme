@@ -32,9 +32,14 @@
             <div id="two-column-menu">
             </div>
             <ul class="navbar-nav" id="navbar-nav">
+                 <li class="nav-item ">
+                    <a class="nav-link menu-link <?php echo e((request()->routeIs('users.index') ? 'active' : '')); ?>" href="<?php echo e(route('users.index')); ?>">
+                        <i class="ri-honour-line"></i> <span>User Managment</span>
+                    </a>
+                </li>
                 <li class="nav-item">
-                    <a class="nav-link menu-link" href="index">
-                        <i class="ri-home-wifi-line"></i> <span><?php echo app('translator')->get('translation.homepage'); ?></span>
+                    <a class="nav-link menu-link " href="index">
+                        <i class="ri-home-wifi-line"></i> ###<span><?php echo app('translator')->get('translation.homepage'); ?></span>
                     </a>
                 </li>
                 <li class="menu-title"><span><?php echo app('translator')->get('translation.menu'); ?></span></li>

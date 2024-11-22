@@ -28,14 +28,15 @@
             "App\\": "app/",
             "Database\\Factories\\": "database/factories/",
             "Database\\Seeders\\": "database/seeders/"
-        }
+        } 
     },
     "autoload-dev": {
         "psr-4": {
             "Tests\\": "tests/"
         },
         "files": [
-            "app/Helpers/Smart.php"
+            "app/Helpers/Smart.php",
+            "app/Helpers/helpers.php"
         ]
     },
     "scripts": {

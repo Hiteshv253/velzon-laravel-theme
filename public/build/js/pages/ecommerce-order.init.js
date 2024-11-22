@@ -27,15 +27,15 @@ var str_dt = function formatDate(date) {
     return [day + " " + month+","+ year +" <small class='text-muted'>"+ hours + ':' + minutes + ' ' + newformat +"</small>"];
 };
 
-var isChoiceEl = document.getElementById("idStatus");
-var choices = new Choices(isChoiceEl, {
-    searchEnabled: false,
-});
-
-var isPaymentEl = document.getElementById("idPayment");
-var choices = new Choices(isPaymentEl, {
-    searchEnabled: false,
-});
+//var isChoiceEl = document.getElementById("idStatus");
+//var choices = new Choices(isChoiceEl, {
+//    searchEnabled: false,
+//});
+//
+//var isPaymentEl = document.getElementById("idPayment");
+//var choices = new Choices(isPaymentEl, {
+//    searchEnabled: false,
+//});
 
 var checkAll = document.getElementById("checkAll");
 if (checkAll) {
@@ -54,7 +54,7 @@ if (checkAll) {
         (checkedCount > 0) ? document.getElementById("remove-actions").style.display = 'none' : document.getElementById("remove-actions").style.display = 'block';
     };
 }
-var perPage = 8;
+var perPage = 25;
 var editlist = false;
 
 //Table
@@ -527,51 +527,51 @@ document.querySelector(".pagination-prev").addEventListener("click", function ()
         document.querySelector(".pagination.listjs-pagination").querySelector(".active") ?
             document.querySelector(".pagination.listjs-pagination").querySelector(".active").previousSibling.children[0].click() : "" : "";
 });
-
-// Delete Multiple Records
-function deleteMultiple(){
-    ids_array = [];
-    var items = document.querySelectorAll('.form-check [value=option1]');
-    for (i = 0; i < items.length; i++) {
-        if (items[i].checked == true) {
-            var trNode = items[i].parentNode.parentNode.parentNode;
-            var id = trNode.querySelector("td a").innerHTML;
-            ids_array.push(id);
-        }
-    }
-    if (typeof ids_array !== 'undefined' && ids_array.length > 0) {
-        Swal.fire({
-            title: "Are you sure?",
-            text: "You won't be able to revert this!",
-            icon: "warning",
-            showCancelButton: true,
-            confirmButtonClass: 'btn btn-primary w-xs me-2 mt-2',
-            cancelButtonClass: 'btn btn-danger w-xs mt-2',
-            confirmButtonText: "Yes, delete it!",
-            buttonsStyling: false,
-            showCloseButton: true
-        }).then(function (result) {
-            if (result.value) {
-                for (i = 0; i < ids_array.length; i++) {
-                    orderList.remove("id", `<a href="apps-ecommerce-order-details" class="fw-medium link-primary">` + ids_array[i] +`</a>`);
-                }
-                document.getElementById("remove-actions").style.display = 'none';
-                document.getElementById("checkAll").checked = false;
-                Swal.fire({
-                    title: 'Deleted!',
-                    text: 'Your data has been deleted.',
-                    icon: 'success',
-                    confirmButtonClass: 'btn btn-info w-xs mt-2',
-                    buttonsStyling: false
-                });
-            }
-        });
-    } else {
-        Swal.fire({
-            title: 'Please select at least one checkbox',
-            confirmButtonClass: 'btn btn-info',
-            buttonsStyling: false,
-            showCloseButton: true
-        });
-    }
-}
+//
+//// Delete Multiple Records
+//function deleteMultiple(){
+//    ids_array = [];
+//    var items = document.querySelectorAll('.form-check [value=option1]');
+//    for (i = 0; i < items.length; i++) {
+//        if (items[i].checked == true) {
+//            var trNode = items[i].parentNode.parentNode.parentNode;
+//            var id = trNode.querySelector("td a").innerHTML;
+//            ids_array.push(id);
+//        }
+//    }
+//    if (typeof ids_array !== 'undefined' && ids_array.length > 0) {
+//        Swal.fire({
+//            title: "Are you sure?",
+//            text: "You won't be able to revert this!",
+//            icon: "warning",
+//            showCancelButton: true,
+//            confirmButtonClass: 'btn btn-primary w-xs me-2 mt-2',
+//            cancelButtonClass: 'btn btn-danger w-xs mt-2',
+//            confirmButtonText: "Yes, delete it!",
+//            buttonsStyling: false,
+//            showCloseButton: true
+//        }).then(function (result) {
+//            if (result.value) {
+//                for (i = 0; i < ids_array.length; i++) {
+//                    orderList.remove("id", `<a href="apps-ecommerce-order-details" class="fw-medium link-primary">` + ids_array[i] +`</a>`);
+//                }
+//                document.getElementById("remove-actions").style.display = 'none';
+//                document.getElementById("checkAll").checked = false;
+//                Swal.fire({
+//                    title: 'Deleted!',
+//                    text: 'Your data has been deleted.',
+//                    icon: 'success',
+//                    confirmButtonClass: 'btn btn-info w-xs mt-2',
+//                    buttonsStyling: false
+//                });
+//            }
+//        });
+//    } else {
+//        Swal.fire({
+//            title: 'Please select at least one checkbox',
+//            confirmButtonClass: 'btn btn-info',
+//            buttonsStyling: false,
+//            showCloseButton: true
+//        });
+//    }
+//}

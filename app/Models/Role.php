@@ -9,7 +9,6 @@ use Illuminate\Database\Eloquent\Model;
 class Role extends Model {
 
     protected $guarded = [];
-    
     protected $fillable = [
         'vendor_id',
         'name',
