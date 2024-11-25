@@ -67,6 +67,11 @@
 
             }
         </style>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+        <script>
+     var token = $("meta[name='csrf-token']").attr("content");
+</script>
     </head>
 
     @section('body')
@@ -103,6 +108,7 @@
     <!-- JAVASCRIPT -->
     @include('layouts.vendor-scripts')
 </body>
+
 <script>
 function backbtn() {
 
