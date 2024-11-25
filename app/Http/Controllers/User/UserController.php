@@ -48,8 +48,14 @@ class UserController extends Controller {
         return view('users.index');
     }
 
+    public function index_vue() {
+        $users = User::get();
+        return response()->json($users);
+    }
+
     public function index() {
-        $users = User::where('is_active', '=', 0)->get();
+//        $users = User::where('is_active', '=', 0)->get();
+        $users = User::get();
 
         $breadcrumbs = [
             ['link' => "/", 'name' => "User Management"],
@@ -170,6 +176,13 @@ class UserController extends Controller {
      * @param int $id
      * @return \Illuminate\Http\JsonResponse
      */
+    public function delete($delete_id) {
+        DB::beginTransaction();
+        DB::table('users')->where('id', '=', $delete_id)->update(['is_active' => '1']);
+        DB::commit();
+        return redirect()->route('users.index')->with('success', 'User has been Deleted successfully');
+    }
+
     public function multi_delete(Request $request) {
 //        dd($request->all());
         DB::beginTransaction();
