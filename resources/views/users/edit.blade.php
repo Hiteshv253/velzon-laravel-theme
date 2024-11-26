@@ -40,13 +40,14 @@
                             </div>
                             <div class="row">
 
-                                <div class="col-lg-6">
+                                <div class="col-lg-4">
                                     <label class="form-label" for="password">Password</label>
                                     <input id="password" type="password" name="password" class="validate form-control" minlength="8" data-error=".errorTxt1" value="">
 
                                     <div class="invalid-feedback">Please enter a password</div>
                                 </div>
-                                <div class="col-lg-6">
+                                
+                                <div class="col-lg-4">
                                     <h6 class="fw-semibold">Select Roles</h6>
                                     <select class="js-example-basic-multiple" name="roles[]" id="roles" multiple="multiple">
                                         @foreach($roles as $role)
@@ -57,6 +58,14 @@
                                                 </option>
                                             @endif
                                         @endforeach
+                                    </select>
+                                </div>
+                                <div class="col-lg-4">
+                                    <h6 class="fw-semibold">Select Action</h6>
+                                    <select class="form-select mb-3" aria-label="Default select example" name="is_active" id="is_active">
+                                <option value="0"  @if($user->is_active == '0') selected @endif >Active</option>
+                                <option value="1"  @if($user->is_active == '1') selected @endif >Block</option>
+                                        
                                     </select>
                                 </div>
                             </div>

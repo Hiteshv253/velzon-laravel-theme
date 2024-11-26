@@ -40,13 +40,13 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-lg-6">
+                            <div class="col-lg-4">
                                 <label class="form-label" for="password">Password</label>
                                 <input type="password" class="form-control" id="password" name="password"
                                     placeholder="Enter Password" required>
                                 <div class="invalid-feedback">Please enter a password</div>
                             </div>
-                            <div class="col-lg-6">
+                            <div class="col-lg-4">
                                 <h6 class="fw-semibold">Select Roles</h6>
                                 <select class="js-example-basic-multiple" name="roles[]" multiple="multiple">
                                     @foreach($roles as $role)
@@ -59,6 +59,13 @@
                                     @endforeach
                                 </select>
                             </div>
+                            <div class="col-lg-4">
+                                    <select class="form-select mb-3" aria-label="Default select example" name="is_active" id="is_active">
+                                        <option selected>Select </option>
+                                        <option value="0">Active</option>
+                                        <option value="1">Block</option>
+                                    </select>
+                                </div>
                         </div>
                     </div>
 

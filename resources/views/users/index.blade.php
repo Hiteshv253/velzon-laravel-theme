@@ -143,10 +143,8 @@ Userss
                                         </td>
                                         <td>
                                             <ul class="list-inline hstack gap-2 mb-0">
-                                                <li class="list-inline-item edit" data-bs-toggle="tooltip"
-                                                    data-bs-trigger="hover" data-bs-placement="top" title="Edit">
-                                                    <a href="#showModal" data-bs-toggle="modal"
-                                                        class="text-primary d-inline-block edit-item-btn">
+                                                  <li class="list-inline-item" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top" title="Edit">
+                                                    <a href="{{ route('users.edit', $user->id) }}" class="text-primary d-inline-block">
                                                         <i class="ri-pencil-fill fs-16"></i>
                                                     </a>
                                                 </li>

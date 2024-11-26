@@ -28,7 +28,7 @@
                                      height="20">
                             </a>
                         </div>
-                        <p class="mt-3 fs-15 fw-medium">Premium Admin & Dashboard Template</p>
+                        <!--<p class="mt-3 fs-15 fw-medium">Premium Admin & Dashboard Template</p>-->
                     </div>
                 </div>
             </div>
@@ -41,13 +41,13 @@
                         <div class="card-body p-4">
                             <div class="text-center mt-2">
                                 <h5 class="text-primary">Welcome Back !</h5>
-                                <p class="text-muted">Sign in to continue to Velzon.</p>
+                                <!--<p class="text-muted">Sign in to continue to Velzon.</p>-->
                             </div>
                             <div class="p-2 mt-4">
                                 <form action="{{ route('login') }}" method="POST">
                                     @csrf
                                     <div class="mb-3">
-                                        <label for="username" class="form-label">Username <span
+                                        <label for="username" class="form-label">Email ID <span
                                                 class="text-danger">*</span></label>
                                         <input type="text" class="form-control @error('email') is-invalid @enderror"
                                                value="{{ old('email', 'admin@themesbrand.com') }}" id="username"
