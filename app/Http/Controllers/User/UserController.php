@@ -132,14 +132,15 @@ class UserController extends Controller {
     }
 
     public function update(Request $request, $id) {
-
-        DB::beginTransaction();
+//        dd($request->all(), $id);
+//        DB::beginTransaction();
         $this->validate($request, [
-            // 'name' => 'bail|required|min:2',
-            // 'email' => 'required|email|unique:users,email,' . $id,
+//            'name' => 'bail|required|min:2',
+//            'email' => 'required|email|unique:users,email,' . $id,
             'roles' => 'required|min:1'
         ]);
         $user = User::findOrFail($id);
+        $user->is_active = $request->is_active;
         if ($request->get('password')) {
             $user->password = bcrypt($request->get('password'));
         }
@@ -165,9 +166,9 @@ class UserController extends Controller {
         }
         $user->syncRoles($request->roles);
         $user->save();
-        DB::commit();
-        redirect()->back()->with('success', 'User has been updated. !');
-        return redirect('/users/');
+//        DB::commit();
+
+        return redirect()->route('users.index')->with('success', 'User has been update successfully');
     }
 
     /**

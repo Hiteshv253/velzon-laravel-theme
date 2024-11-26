@@ -25,6 +25,7 @@ Userss
                             <h5 class="card-title mb-0">Users List</h5>
                         </div>
                     </div>
+                    
                     <div class="col-sm-auto">
                         <div class="d-flex gap-1 flex-wrap">
                             <a type="button" class="btn btn-success add-btn" href="{{ route('users.create') }}"
@@ -52,6 +53,15 @@ Userss
                     </div>
                 </div>
             </div>
+@if (session('success'))
+                    <div class="card-header">
+                
+<div class="alert alert-success alert-dismissible fade show material-shadow" role="alert">
+    <strong> {!! \Session::get('success') !!} </strong> 
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+                    </div>
+@endif
             <div class="card-body border-bottom-dashed border-bottom">
                 <form>
                     <div class="row g-3">
@@ -139,7 +149,7 @@ Userss
 
                                         <td class="date">{{ $user->created_at }}</td>
                                         <td class="status">
-                                            <?php    echo ($user->is_active == '0') ? '<span class="badge bg-success-subtle text-success text-uppercase">Active</span>' : '<span class="badge bg-danger-subtle text-danger text-uppercase">Block</span>'; ?>
+                                            <?php  echo ($user->is_active == '0') ? '<span class="badge bg-success-subtle text-success text-uppercase">Active</span>' : '<span class="badge bg-danger-subtle text-danger text-uppercase">Block</span>'; ?>
                                         </td>
                                         <td>
                                             <ul class="list-inline hstack gap-2 mb-0">
