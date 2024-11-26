@@ -9,7 +9,7 @@
                             <img src="{{ URL::asset('build/images/logo-sm.png') }}" alt="" height="22">
                         </span>
                         <span class="logo-lg">
-                            <img src="{{ URL::asset('build/images/logo-dark.png') }}" alt="" height="17">
+                            <img src="{{ URL::asset('build/images/logo-dark.png') }}" alt="" height="42">
                         </span>
                     </a>
 

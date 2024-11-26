@@ -25,7 +25,7 @@
                         <div>
                             <a href="index" class="d-inline-block auth-logo">
                                 <img src="{{ URL::asset('build/images/logo-light.png') }}" alt=""
-                                     height="20">
+                                     height="80">
                             </a>
                         </div>
                         <!--<p class="mt-3 fs-15 fw-medium">Premium Admin & Dashboard Template</p>-->
@@ -119,7 +119,7 @@
                     </div>
                     <!-- end card -->
 
-                    <div class="mt-4 text-center">
+                    <div class="mt-4 text-center" style="display: none;" >
                         <p class="mb-0">Don't have an account ? <a href="{{ route('register') }}"
                                                                    class="fw-semibold text-primary text-decoration-underline"> Signup </a> </p>
                     </div>

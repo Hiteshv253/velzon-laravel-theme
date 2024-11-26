@@ -6,6 +6,12 @@ use App\Http\Controllers\User\UserController;
 use App\Http\Controllers\CustomerMaster\CustomerMasterController;
 use App\Http\Controllers\CustomerMaster\CustomerActivityHistoryController;
 use App\Http\Controllers\AuditManagement\AuditController;
+use App\Http\Controllers\ModuleMaster\ModuleController;
+use App\Http\Controllers\ModuleMaster\ModuleCRUDController;
+use App\Http\Controllers\ModuleMaster\EmployeeController;
+use App\Http\Controllers\ModuleMaster\DepartmentController;
+use App\Http\Controllers\ModuleMaster\TeamController;
+use App\Http\Controllers\ModuleMaster\DesignationController;
 
 /*
   |--------------------------------------------------------------------------
@@ -81,4 +87,46 @@ Route::group(['middleware' => 'auth'], function () {
         'as' => 'admin.customer.audit_list',
         'uses' => [CustomerActivityHistoryController::class, 'getCustomerAudit'],
     ]);
+
+//    ModuleController CURD Master*************************************************************************
+    Route::resource('module', ModuleController::class)->names([
+        'index' => 'module.index',
+    ]);
+    Route::resource('roles', 'RoleController');
+
+    Route::group(['prefix' => 'modules/module/'], function () {
+        // Save filters
+        Route::post('savefilter/store', 'SaveFilterController@store')->name('savefilter.store');
+        Route::post('savefilter/update/', 'SaveFilterController@update')->name('savefilter.update');
+        Route::delete('savefilter/destroy', 'SaveFilterController@destroy')->name('savefilter.destroy');
+
+        // Mail
+        Route::post('mail/sendcsv', 'MailController@sendCSV')->name('mail.sendcsv');
+
+        // Employees
+        Route::post('employees/store', 'EmployeeController@employeeStore')->name('employees.store');
+        Route::put('employees/update', 'EmployeeController@employeeUpdate')->name('employees.update');
+
+        // Departments
+        Route::post('departments/store', 'DepartmentController@departmentStore')->name('departments.store');
+        Route::put('departments/update', 'DepartmentController@departmentUpdate')->name('departments.update');
+
+        // Team
+        Route::post('teams/store', 'TeamController@teamStore')->name('teams.store');
+        Route::put('teams/update', 'TeamController@teamUpdate')->name('teams.update');
+
+        // Designation
+        Route::post('designations/store', 'DesignationController@designationStore')->name('designations.store');
+        Route::put('designations/update', 'DesignationController@designationUpdate')->name('designations.update');
+
+        // Modules
+        Route::get('{name}', [ModuleController::class, 'index'])->name('modules.module');
+        Route::get('{name}/create', [ModuleController::class, 'create'])->name('modules.module.create');
+        Route::post('store', [ModuleController::class, 'store'])->name('modules.module.store');
+        Route::delete('{name}/{id}', [ModuleController::class, 'destroy'])->name('modules.module.destroy');
+        Route::get('{name}/{id}', [ModuleController::class, 'show'])->name('modules.module.show');
+        Route::get('{name}/{id}/edit', [ModuleController::class, 'edit'])->name('modules.module.edit');
+        Route::put('update', [ModuleController::class, 'update'])->name('modules.module.update');
+        Route::post('massdestroy', [ModuleController::class, 'massDestroy'])->name('modules.module.massdestroy');
+    });
 });

@@ -360,7 +360,7 @@
                                             <option value="Choice 1" selected>Choice 1</option>
                                             <option value="Choice 2">Choice 2</option>
                                             <option value="Choice 3">Choice 3</option>
-                                            <option value="Choice 4" disabled>Choice 4</option>
+                                            <option value="Choice 4" disabled>Choice 41112</option>
                                         </select>
                                     </div>
                                 </div>
@@ -374,8 +374,8 @@
                                         <select class="form-control" id="choices-multiple-remove-button" data-choices
                                             data-choices-removeItem name="choices-multiple-remove-button" multiple>
                                             <option value="Choice 1" selected>Choice 1</option>
-                                            <option value="Choice 2">Choice 2</option>
-                                            <option value="Choice 3">Choice 3</option>
+                                            <option value="Choice 2">Choice 2a</option>
+                                            <option value="Choice 3">Choice 3fasd</option>
                                             <option value="Choice 4">Choice 4</option>
                                         </select>
                                     </div>

@@ -60,6 +60,7 @@
                                 </select>
                             </div>
                             <div class="col-lg-4">
+                                <h6 class="fw-semibold">Select Action</h6>
                                     <select class="form-select mb-3" aria-label="Default select example" name="is_active" id="is_active">
                                         <option selected>Select </option>
                                         <option value="0">Active</option>
@@ -98,8 +99,7 @@
 @section('script')
 
 
-<script src="{{ URL::asset('build/js/pages/form-wizard.init.js') }}"></script>
-<script src="{{ URL::asset('build/js/app.js') }}"></script>
+ <script src="{{ URL::asset('build/js/app.js') }}"></script>
 <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 
 <script src="{{ URL::asset('build/js/pages/select2.init.js') }}"></script>
